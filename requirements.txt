@@ -1,2 +1,4 @@
 django
 time
+beautifulsoup4
+datetime
