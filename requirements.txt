@@ -1,0 +1,7 @@
+django
+time
+beautifulsoup4
+datetime
+python-docx
+wget
+aspose-words 

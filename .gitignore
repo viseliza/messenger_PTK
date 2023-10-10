@@ -3,3 +3,7 @@ __pycache__
 db.sqlite3
 *.pyc
 todo.md
+doc
+package-lock.json
+node_modules
+txt
