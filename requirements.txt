@@ -1,7 +1,8 @@
 django
 time
+dotenv
 beautifulsoup4
 datetime
+psycopg2
 python-docx
 wget
-aspose-words 

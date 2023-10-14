@@ -1,34 +1,25 @@
 import unirest from "unirest";
+// import pool from '../config/index.js'
 import * as cheerio from 'cheerio';
 import * as fs from 'fs';
 
-// export class Tasks {
-//     static async insertGroups() {
-//         let url = "https://portal.novsu.ru/univer/timetable/spo/";
-//         const response = await unirest.get( url );
-//         const $ = cheerio.load( response.body ),
-//             col = $( '.block_content.content:first' );
+export class Tasks {
+    static async insertGroups() {
+        let url = "https://portal.novsu.ru/univer/timetable/spo/";
+        const response = await unirest.get( url );
+        const $ = cheerio.load( response.body ),
+            col = $( '.block_content.content:first' );
         
-//         col.find( 'tr' ).each(( _, row ) => {
-//             $( row ).find( 'td' ).find( 'a' ).each( async ( _, cell ) => {
-//                 console.log( $( cell ).text(), `https://portal.novsu.ru${$( cell ).attr( 'href' )}`);
-//             })
-//         })   
-//     }
-// }
-
-async function insertGroups() {
-    let url = "https://portal.novsu.ru/univer/timetable/spo/";
-    const response = await unirest.get( url );
-    const $ = cheerio.load( response.body ),
-        col = $( '.block_content.content:first' );
-    col.find( 'tr' ).each(( _, row ) => {
-        $( row ).find( 'td' ).find( 'a' ).each( async ( _, cell ) => {
-            console.log( $( cell ).text(), `https://portal.novsu.ru${$( cell ).attr( 'href' )}`);
-        })
-    })   
+        col.find( 'tr' ).each(( _, row ) => {
+            $( row ).find( 'td' ).find( 'a' ).each( async ( _, cell ) => {
+                // Добавление в бд
+                console.log( $( cell ).text(), `https://portal.novsu.ru${$( cell ).attr( 'href' )}`);
+                
+            })
+        })   
+    }
 }
-insertGroups()
+
 
 /* OUTPUT
 3781 https://portal.novsu.ru/npe/files/_timetable/ptk/3993 3921 3781 3782.xls?rnd=415781
